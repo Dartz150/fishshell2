@@ -7,7 +7,7 @@
 #include "blargg_common.h"
 #include <string.h>
 
-#define inline __inline__ __attribute__((always_inline))
+#define ALWAYS_INLINE __inline__ __attribute__((always_inline))
 
 class Fir_Resampler_ {
 public:

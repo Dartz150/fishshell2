@@ -4,7 +4,7 @@
 #ifndef DUAL_RESAMPLER_H
 #define DUAL_RESAMPLER_H
 
-#define inline __inline__ __attribute__((always_inline))
+#define ALWAYS_INLINE __inline__ __attribute__((always_inline))
 
 #include "Fir_Resampler.h"
 #include "Blip_Buffer.h"

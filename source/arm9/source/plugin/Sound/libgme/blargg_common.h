@@ -15,7 +15,7 @@
 #ifndef BLARGG_COMMON_H
 #define BLARGG_COMMON_H
 
-#define inline __inline__ __attribute__((always_inline))
+#define ALWAYS_INLINE __inline__ __attribute__((always_inline))
 
 // STATIC_CAST(T,expr): Used in place of static_cast<T> (expr)
 #ifndef STATIC_CAST
