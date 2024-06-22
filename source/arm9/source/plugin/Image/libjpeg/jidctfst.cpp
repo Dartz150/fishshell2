@@ -189,7 +189,7 @@ jpeg_idct_ifast (j_decompress_ptr cinfo, jpeg_component_info * compptr,
       ppLineBuf[idx] = output_buf[idx] + output_col;
     }
     
-    jpeg_idct_ifast_clip_asm(workspace,quantptr,coef_block,ppLineBuf);
+    jpeg_idct_ifast_clip_asm(reinterpret_cast<s32*>(workspace), reinterpret_cast<s32*>(quantptr), coef_block, ppLineBuf);
     
     return;
   }

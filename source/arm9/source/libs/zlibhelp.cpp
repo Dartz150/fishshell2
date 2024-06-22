@@ -25,14 +25,14 @@ extern int ZEXPORT deflateInit2_(
     int stream_size);
 
 
-static void* zalloc(void *opaque, u32 items, u32 size)
+void* zalloc(void* opaque, unsigned int items, unsigned int size)
 {
   void *p=safemalloc_chkmem(&MM_Temp,items*size);
 //  _consolePrintf("zalloc: 0x%08x, %dx%d\n",p,items,size);
   return(p);
 }
 
-static void zfree(void *opaque, void *address)
+void zfree(void* opaque, void* address)
 {
 //  _consolePrintf("zfree: 0x%08x\n",address);
   return(safefree(&MM_Temp,address));
