@@ -14,23 +14,22 @@ include $(DEVKITARM)/ds_rules
 # DATA is a list of directories containing binary files
 # all directories are relative to this makefile
 #---------------------------------------------------------------------------------
-BUILD		:=	build
-SOURCES		:=	source  source/fpga source/libmp2 source/resources
-INCLUDES	:=	include build ../include ../include/nds
-DATA		:=
- 
+BUILD      := build
+SOURCES    := source source/fpga source/libmp2 source/resources source/mman
+INCLUDES   := include build ../include ../include/nds
+DATA       :=
+
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
-ARCH := -marm -mthumb-interwork
+ARCH := -marm -mthumb-interwork -march=armv4t
 
-CFLAGS   := -g -Wall -O2\
-            $(ARCH) $(INCLUDE) -DARM7
-CXXFLAGS := $(CFLAGS) -fno-rtti -fno-exceptions
-ASFLAGS  := -g $(ARCH)
-LDFLAGS   = -specs=ds_arm7.specs -g $(ARCH) -Wl,--nmagic -Wl,-Map,$(notdir $*).map
+CFLAGS     := -g -Wall -O2 $(ARCH) $(INCLUDE) -DARM7 -D_FPM_ARM -DUSE_MP2 -DFPM_DEFAULT -DIGNORE_MAD_LAYER_I -DOPT_ACCURACY -DASO_IMDCT -DASO_INTERLEAVE1
+CXXFLAGS   := $(CFLAGS) -fno-rtti -fno-exceptions
+ASFLAGS    := -g $(ARCH)
+LDFLAGS    := -specs=ds_arm7.specs -g $(ARCH) -Wl,--nmagic -Wl,-Map,$(notdir $*).map
 
-LIBS := -ldswifi7 -lnds7
+LIBS       := -lnds7
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing

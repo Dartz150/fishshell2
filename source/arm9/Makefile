@@ -41,7 +41,8 @@ INCLUDES	:=	source source/glib source/libs source/gba_nds_fat source/libelm/sour
 			source/procbody source/procbody/proc_AudioPlay source/procbody/Proc_BinView source/procbody/proc_DPGPlay \
 			source/procbody/proc_BootROM source/procbody/proc_FileList source/procbody/proc_ImageView \
 			source/procbody/proc_Memo source/procbody/proc_MemoList source/procbody/proc_TextView \
-			source/plugin/Sound/libmp3
+			source/plugin/Sound/libmp3 \
+			source/arm9/source
 DATA		:=
 GRAPHICS	:=
 
