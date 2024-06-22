@@ -2335,7 +2335,7 @@ FAT_FILE* FAT_fopen(const char* path, const char* mode)
 
   // Can only reach here if a bad mode was specified
   StopFatalError(11914,"Unknown error in file open.\n");
-  return(false);
+  return(NULL);
 }
 
 /*-----------------------------------------------------------------

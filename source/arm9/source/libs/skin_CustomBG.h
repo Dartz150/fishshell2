@@ -17,7 +17,7 @@ static CglCanvas* LoadCustomBG(void)
   if(pCustomBG==NULL){
     _consolePrint("LoadCustomBG: pCustomBG Memory overflow.\n");
     FAT2_fclose(pfh);
-    return(false);
+    return NULL;
   }
   
   switch(BGBMPType){
