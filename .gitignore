@@ -1,0 +1,6 @@
+/.vscode
+
+source/arm7/build
+source/arm9/build
+source/arm7/FishShell2.elf
+source/arm9/FishShell2.elf
