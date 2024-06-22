@@ -296,7 +296,7 @@
 /* enough people need this for various reasons to include it here */
 #if !defined(MACOS) && !defined(RISCOS) && !defined(_WIN32_WCE)
 //#  include <sys/types.h>
-#  include <nds/jtypes.h>
+#  include <nds/ndstypes.h>
 #endif
 
 #if !defined(PNG_SETJMP_NOT_SUPPORTED) && !defined(PNG_NO_SETJMP_SUPPORTED)

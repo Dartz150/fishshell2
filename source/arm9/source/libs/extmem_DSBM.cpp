@@ -1,6 +1,6 @@
 
 #include <nds.h>
-#include <_const.h>
+#include "_const.h"
 
 // --- DS Browser Memory stuff
 
