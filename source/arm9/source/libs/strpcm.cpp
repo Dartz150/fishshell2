@@ -146,8 +146,8 @@ DATA_IN_IWRAM_MainPass void InitInterrupts(void)
   fifoSetValue32Handler(FIFO_PM, systemValueHandler, 0);
   fifoSetDatamsgHandler(FIFO_SYSTEM, systemMsgHandler, 0);
 
-  if(REG_DSIMODE) {
-	  fifoSendValue32(FIFO_PM,PM_DSI_HACK);
+  if(isDSiMode()) {
+	  fifoSendValue32(FIFO_PM,FIFO_SDMMC);
   }
   	
   irqSet(IRQ_VBLANK,InterruptHandler_VBlank);
