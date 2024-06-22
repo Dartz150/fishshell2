@@ -476,15 +476,16 @@ SECTIONS
 		Image_EOVR_ITCM_libsnd_wave_Base = . ;
 		* (.ITCM_libsnd_wave)
 	}
-	.EOVR_MTCM	:
-	{
-		Image_EOVR_MTCM_Base = . ;
-		header.o (.rodata)
-		slice.o (.rodata)
-		clibmpg.o (.rodata)
-		* (.mtcmset)
-		* (.mtcmvar)
-	}
+    .EOVR_MTCM :
+    {
+        PROVIDE(Image_EOVR_MTCM_Base = .);
+        header.o (.rodata)
+        slice.o (.rodata)
+        clibmpg.o (.rodata)
+        * (.mtcmset)
+        * (.mtcmvar)
+    }
+
 	.EOVR_libglobal_RebootLoader	:
 	{
 		Image_EOVR_libglobal_RebootLoader_Base = . ;
@@ -623,19 +624,20 @@ SECTIONS
 	} >ewram = 0xff
 
 
-	__dtcm_lma = . ;
-	__bss_vma = . ;
+    . = ALIGN(4);
+    __dtcm_lma = .;
+    __bss_vma = .;
 
-	.dtcm __dtcm_start : AT (__dtcm_lma)
-	{
-		Image_ER_DTCM_Base = . ;
-		Load_ER_DTCM_Base = __dtcm_lma;
-		*(.dtcm)
-		*(.dtcm.*)
-		. = ALIGN(4);
-		__dtcm_end = ABSOLUTE(.);
-	} >dtcm  = 0xff
-	Image_ER_DTCM_Length = SIZEOF(.dtcm);
+    .dtcm __dtcm_start : AT (__dtcm_lma)
+    {
+        PROVIDE(Image_ER_DTCM_Base = .);
+        Load_ER_DTCM_Base = __dtcm_lma;
+        *(.dtcm)
+        *(.dtcm.*)
+        . = ALIGN(4);
+        __dtcm_end = ABSOLUTE(.);
+    } >dtcm = 0xff
+    PROVIDE(Image_ER_DTCM_Length = SIZEOF(.dtcm));
 
 
 	__itcm_lma = __dtcm_lma + SIZEOF(.dtcm);
@@ -1031,14 +1033,14 @@ SECTIONS
 	Image_EOVR_ITCM_libsnd_wave_Length = SIZEOF(.EOVR_ITCM_libsnd_wave);
 	
 	/*; ----------------------------------------------------------------------------*/
-	/*; MTCM in DTCM for DPG*/
-	
-	Load_EOVR_MTCM_Base = Load_EOVR_ITCM_libsnd_wave_Base + SIZEOF(.EOVR_ITCM_libsnd_wave);
-	.EOVR_MTCM 0x0b000000+0x500: AT (Load_EOVR_MTCM_Base)
-	{
-		. = ALIGN(4);
-	}
-	Image_EOVR_MTCM_Length = SIZEOF(.EOVR_MTCM);
+    /*; MTCM in DTCM for DPG*/
+
+    Load_EOVR_MTCM_Base = Load_EOVR_ITCM_libsnd_wave_Base + SIZEOF(.EOVR_ITCM_libsnd_wave);
+    .EOVR_MTCM 0x0b000000+0x500 : AT (Load_EOVR_MTCM_Base)
+    {
+        . = ALIGN(4);
+    }
+    PROVIDE(Image_EOVR_MTCM_Length = SIZEOF(.EOVR_MTCM));
 	    
 	Load_EOVR_libglobal_RebootLoader_Base = Load_EOVR_MTCM_Base + SIZEOF(.EOVR_MTCM);
 	.EOVR_libglobal_RebootLoader 0x023ff200 : AT (Load_EOVR_libglobal_RebootLoader_Base) /* IPC */

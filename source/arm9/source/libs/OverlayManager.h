@@ -32,5 +32,10 @@ extern void OVM_libglobal_ndsrom(void);
 extern void OVM_LoadAfterSystem(void);
 extern void OVM_LoadAfterSystem2(void);
 
+extern u32 Image_ER_DTCM_Length;
+extern u32 Image_ER_DTCM_Base;
+extern u32 Image_EOVR_MTCM_Length;
+extern u32 Image_EOVR_MTCM_Base;
+
 #endif
 
