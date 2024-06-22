@@ -283,7 +283,7 @@ extern "C" void f_consolePrintChar(u32 c)
 
 void _consolePrint(const char* s)
 {
-//  DTCM_StackCheck(-1); // DPGƒ‚[ƒh‚Å‚Íg‚Á‚Ä‚Í‚¢‚¯‚È‚¢B
+//  DTCM_StackCheck(-1); // DPGï¿½ï¿½ï¿½[ï¿½hï¿½Å‚Ígï¿½ï¿½ï¿½Ä‚Í‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½B
   nocashMessageSafe(s);
 	
   StoreLogSector(s);

@@ -285,7 +285,7 @@ static __attribute__ ((noinline)) void main_ins_start(void)
   
     SetARM9_REG_WaitCR();
   
-    powerOn(POWER_ALL_2D); // | POWER_SWAP_LCDS; // SWAP‚·‚é‚Æƒtƒ@ƒCƒ‹ƒŠƒXƒg‚ª‰º
+    powerOn(POWER_ALL_2D); // | POWER_SWAP_LCDS; // SWAPï¿½ï¿½ï¿½ï¿½Æƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½
   
     _consoleInitLogFile();
   
